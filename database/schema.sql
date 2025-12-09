@@ -2,7 +2,7 @@
 -- E-COMMERCE DATABASE SCHEMA
 -- Purpose: Define tables for sales analytics
 -- Author: Vishank
--- Created:9 December 2024
+-- Created:9 December 2025
 
 
 -- Drop existing tables if they exist (for clean re-creation)
