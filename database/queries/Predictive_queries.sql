@@ -57,11 +57,12 @@ GROUP BY month
 ORDER BY month;
 
 --High-risk orders (low profit or high aging)
+--low profit
 SELECT *
 FROM cleaned_sales_data
 WHERE profit < 0
 ORDER BY profit ASC;
-
+--high aging
 SELECT *
 FROM cleaned_sales_data
 WHERE aging > 10
