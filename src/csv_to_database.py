@@ -3,7 +3,7 @@ CSV to SQL Database Converter
 Loads CSV file(s) into SQLite database
 
 Author: Vishank
-Created: 10 December 2024
+Created: 10 December 2025
 """
 
 import pandas as pd
