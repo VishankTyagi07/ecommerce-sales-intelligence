@@ -54,7 +54,7 @@ class SalesAnalytics():
         return pd.read_sql_query(query, self.conn)
     
     #for finding total profit along with total sales
-    def Sales_plus_Profit(self)-> pd.DataFrame:
+    def Sales_generated_Profit(self)-> pd.DataFrame:
         query="""SELECT SUM(sales) AS total_sales, SUM(profit) AS total_profit FROM cleaned_sales_data;"""
         return pd.read_sql_query(query, self.conn)
     
@@ -68,10 +68,17 @@ class SalesAnalytics():
     
     #sales of each region
     def Regional_Sales(self)-> pd.DataFrame:
-        query="""SELECT region, SUM(sales) AS sales
+        query="""SELECT 
+                CASE strftime('%m', order_date)
+                WHEN '01' THEN 'January' WHEN '02' THEN 'February' WHEN '03' THEN 'March'
+                WHEN '04' THEN 'April' WHEN '05' THEN 'May' WHEN '06' THEN 'June'
+                WHEN '07' THEN 'July' WHEN '08' THEN 'August' WHEN '09' THEN 'September' WHEN '10' THEN 'October'
+                WHEN '11' THEN 'November' WHEN '12' THEN 'December'
+                END AS month,
+                SUM(sales) AS sales
                 FROM cleaned_sales_data
-                GROUP BY region
-                ORDER BY sales DESC;"""
+                GROUP BY strftime('%m', order_date)
+                ORDER BY strftime('%m', order_date);"""
         return pd.read_sql_query(query, self.conn)
     
 #Time-based summaries
