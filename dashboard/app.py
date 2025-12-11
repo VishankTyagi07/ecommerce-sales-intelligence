@@ -113,6 +113,7 @@ else:
     }
     choice = st.sidebar.selectbox("Choose analysis", analysis_functions.keys())
     func = analysis_functions[choice]
+
     if func:
         if func.__code__.co_argcount > 1:    # function has parameters
             param = st.sidebar.number_input("Enter parameter value:", value=5)
