@@ -19,10 +19,6 @@ import streamlit as st
 st.set_page_config(layout="wide")
 st.title("E-COMMERCE SALES DATA ANALYSIS")
 st.sidebar.title("Types of Analysis That Can Be Performed On The Data")
-#Buttons i use
-Descriptive_button=None
-Predictive_button=None
-Prescriptive_button=None
 #Calling SalesAnalytics class
 analytics=SalesAnalytics("C:/Users/ASUS/Documents/ecommerce-sales-intelligence/database/ecommerce.db")
 #Descriptive analysis Functions
