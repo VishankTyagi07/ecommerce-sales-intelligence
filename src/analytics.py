@@ -122,7 +122,7 @@ class SalesAnalytics:
         query=f"""SELECT product, SUM(sales) AS total_sales
                 FROM cleaned_sales_data
                 GROUP BY product
-                ORDER BY total_sales ASC
+                ORDER BY total_sales ASC 
                 LIMIT {limit}"""
         return pd.read_sql_query(query, self.conn)
     
