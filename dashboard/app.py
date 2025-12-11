@@ -74,7 +74,7 @@ elif Type_analysis =='Descriptive Analysis':
     choice = st.sidebar.selectbox("Choose analysis", analysis_functions.keys())
     func = analysis_functions[choice]
     if func:
-        if func.__code__.co_argcount > 1:    # function has parameters
+        if func.__code__.co_argcount > 1:   
             param = st.sidebar.number_input("Enter parameter value:", value=5)
             if st.sidebar.button("Show"):
 
@@ -83,7 +83,7 @@ elif Type_analysis =='Descriptive Analysis':
                 st.plotly_chart(fig,width='stretch')
 
                 st.data_editor(df,hide_index=True,height=350)
-        else:                                # no-parameter function
+        else:                              
             if st.sidebar.button("Show"):
 
                 df = func()
@@ -109,7 +109,7 @@ elif Type_analysis =='Predictive Analysis':
     if func:
         if choice == "RFM Signals":
             if st.sidebar.button("Show RFM Signals"):
-                rfm_dict = func()   # returns { "RFM":df1 , "Scores":df2 , ... }
+                rfm_dict = func()   
 
                 for name, df in rfm_dict.items():
                     st.subheader(name)  
@@ -120,7 +120,7 @@ elif Type_analysis =='Predictive Analysis':
                     st.data_editor(df, hide_index=True,height=350)
         elif choice == "High risk orders":
             if st.sidebar.button("Show orders"):
-                hro_dict = func()   # returns { "RFM":df1 , "Scores":df2 , ... }
+                hro_dict = func()   
 
                 for name, df in hro_dict.items():
                     st.subheader(name)     
@@ -130,7 +130,7 @@ elif Type_analysis =='Predictive Analysis':
 
                     st.data_editor(df, hide_index=True,height=350)
 
-        elif func.__code__.co_argcount > 1:    # function has parameters
+        elif func.__code__.co_argcount > 1:    
             param = st.sidebar.number_input("Enter parameter value:", value=5)
             if st.sidebar.button("Show"):
 
@@ -139,7 +139,7 @@ elif Type_analysis =='Predictive Analysis':
                 st.plotly_chart(fig,width='stretch')
 
                 st.data_editor(df,hide_index=True,height=350)
-        else:                                # no-parameter function
+        else:                                
             if st.sidebar.button("Show"):
 
                 df=func()
@@ -164,7 +164,7 @@ else:
     func = analysis_functions[choice]
 
     if func:
-        if func.__code__.co_argcount > 1:    # function has parameters
+        if func.__code__.co_argcount > 1:    
             param = st.sidebar.number_input("Enter parameter value:", value=5)
             if st.sidebar.button("Show"):
                 
@@ -173,7 +173,7 @@ else:
                 st.plotly_chart(fig,width='stretch')
 
                 st.data_editor(df,hide_index=True,height=350)
-        else:                                # no-parameter function
+        else:                                
             if st.sidebar.button("Show"):
 
                 df=func()
