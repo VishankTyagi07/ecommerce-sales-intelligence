@@ -32,18 +32,24 @@ Created: 11 December 2025
 '''
 import pandas as pd
 import sqlite3
+import os
 
-class SalesAnalytics():
+class SalesAnalytics:
+    #connecting the database
+    def __init__(self, db_path=None):
+        if db_path is None:
+            project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            db_path = os.path.join(project_root, "database", "ecommerce.db")
 
-#connecting the database
-    def __init__(self, db_path='database/ecommerce.db'):
+        self.db_path = db_path
+        
         try:
-            self.db_path = db_path
-            self.conn = sqlite3.connect(db_path)
-            print(f" Connected to database: {db_path}")
+            self.conn = sqlite3.connect(self.db_path)
+            print(f" Connected to database: {self.db_path}")
         except sqlite3.Error as e:
             print(f" Error connecting to database: {e}")
             raise
+
 # functions for descriptive queries
 
 #general summaries
@@ -68,27 +74,27 @@ class SalesAnalytics():
     
     #sales of each region
     def Regional_Sales(self)-> pd.DataFrame:
-        query="""SELECT 
-                CASE strftime('%m', order_date)
-                WHEN '01' THEN 'January' WHEN '02' THEN 'February' WHEN '03' THEN 'March'
-                WHEN '04' THEN 'April' WHEN '05' THEN 'May' WHEN '06' THEN 'June'
-                WHEN '07' THEN 'July' WHEN '08' THEN 'August' WHEN '09' THEN 'September' WHEN '10' THEN 'October'
-                WHEN '11' THEN 'November' WHEN '12' THEN 'December'
-                END AS month,
-                SUM(sales) AS sales
-                FROM cleaned_sales_data
-                GROUP BY strftime('%m', order_date)
-                ORDER BY strftime('%m', order_date);"""
+        query="""SELECT region, SUM(sales) AS sales
+            FROM cleaned_sales_data
+            GROUP BY region
+            ORDER BY sales DESC;"""
         return pd.read_sql_query(query, self.conn)
     
 #Time-based summaries
 
     #monthly sales
     def Monthly_Sales(self)-> pd.DataFrame:
-        query="""SELECT months AS month, SUM(sales) AS sales
-                FROM cleaned_sales_data
-                GROUP BY month
-                ORDER BY sales DESC;"""
+        query="""SELECT 
+            CASE strftime('%m', order_date)
+            WHEN '01' THEN 'January' WHEN '02' THEN 'February' WHEN '03' THEN 'March'
+            WHEN '04' THEN 'April' WHEN '05' THEN 'May' WHEN '06' THEN 'June'
+            WHEN '07' THEN 'July' WHEN '08' THEN 'August' WHEN '09' THEN 'September' WHEN '10' THEN 'October'
+            WHEN '11' THEN 'November' WHEN '12' THEN 'December'
+            END AS month,
+            SUM(sales) AS sales
+            FROM cleaned_sales_data
+            GROUP BY strftime('%m', order_date)
+            ORDER BY strftime('%m', order_date);"""
         return pd.read_sql_query(query, self.conn)
     
     #yearly sales
@@ -184,10 +190,16 @@ class SalesAnalytics():
     #Monthly sales for detecting seasonal demands
 
     def Seasonal_demands(self)-> pd.DataFrame:
-        query="""SELECT months, COUNT(order_id) AS orders, SUM(sales) AS sales
-                FROM cleaned_sales_data
-                GROUP BY months
-                ORDER BY sales DESC;"""
+        query="""SELECT 
+            CASE strftime('%m', order_date)
+            WHEN '01' THEN 'January' WHEN '02' THEN 'February' WHEN '03' THEN 'March'
+            WHEN '04' THEN 'April' WHEN '05' THEN 'May' WHEN '06' THEN 'June'
+            WHEN '07' THEN 'July' WHEN '08' THEN 'August' WHEN '09' THEN 'September' WHEN '10' THEN 'October'
+            WHEN '11' THEN 'November' WHEN '12' THEN 'December'
+            END AS months, COUNT(order_id) AS orders, SUM(sales) AS sales
+            FROM cleaned_sales_data
+            GROUP BY months
+            ORDER BY sales DESC;"""
         return pd.read_sql_query(query, self.conn)
     
     #Product performance trend
@@ -247,7 +259,7 @@ class SalesAnalytics():
                 ORDER BY sales ASC, profit ASC;"""
         return pd.read_sql_query(query, self.conn)
     
-    #Products to discount(high sales + high profit)
+    #Products to Promote (High sales + High profit)
 
     def Products_to_promote(self)-> pd.DataFrame:
         query="""SELECT product,
