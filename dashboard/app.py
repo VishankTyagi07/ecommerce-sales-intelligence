@@ -12,7 +12,7 @@ import sys
 sys.path.append("C:/Users/ASUS/Documents/ecommerce-sales-intelligence")
 import pandas as pd 
 from src.analytics import SalesAnalytics
-import plotly as go
+import plotly.express as px
 import streamlit as st
 
 #Title of the dashboard
@@ -23,6 +23,30 @@ st.sidebar.title("Types of Analysis That Can Be Performed On The Data")
 analytics=SalesAnalytics("C:/Users/ASUS/Documents/ecommerce-sales-intelligence/database/ecommerce.db")
 #Descriptive analysis Functions
 Total_orders=analytics.Count_Total_Orders()
+
+def auto_plot(df: pd.DataFrame):
+    """Automatically generates a Plotly figure from any DataFrame."""
+    # Identify numeric and categorical columns
+    numeric_cols = df.select_dtypes(include=['number']).columns.tolist()
+    categorical_cols = df.select_dtypes(exclude=['number']).columns.tolist()
+    # Case 1: No numeric column → return empty figure with message
+    if len(numeric_cols) == 0:
+        fig = px.scatter(title="No numeric columns available to plot")
+        return fig
+    # Choose y axis (first numeric column)
+    y = numeric_cols[0]
+    # Case 2: No categorical column → use index as x
+    if len(categorical_cols) == 0:
+        x = df.index
+        fig = px.line(df, x=x, y=y, title=f"{y} over index")
+        return fig
+    # Choose x axis (first non-numeric column)
+    x = categorical_cols[0]
+    # Plot auto figure
+    fig = px.bar(df, x=x, y=y, title=f"{y} by {x}")
+    return fig
+
+
 #Sidebar Analysis Options
 Type_analysis=st.sidebar.radio("Pick a Type of Analysis",['Unselected','Descriptive Analysis','Predictive Analysis','Prescriptive Analysis'])
 
@@ -53,10 +77,20 @@ elif Type_analysis =='Descriptive Analysis':
         if func.__code__.co_argcount > 1:    # function has parameters
             param = st.sidebar.number_input("Enter parameter value:", value=5)
             if st.sidebar.button("Show"):
-                st.data_editor(func(param),hide_index=True,width=350,height=250)
+
+                df = func(param)
+                fig = auto_plot(df)
+                st.plotly_chart(fig,width='stretch')
+
+                st.data_editor(df,hide_index=True,height=350)
         else:                                # no-parameter function
             if st.sidebar.button("Show"):
-                st.data_editor(func(),hide_index=True,width=350,height=250)
+
+                df = func()
+                fig = auto_plot(df)
+                st.plotly_chart(fig,width='stretch')
+
+                st.data_editor(df,hide_index=True,height=350)
 
 elif Type_analysis =='Predictive Analysis':
     st.sidebar.header("Predictive Analysis Functions")
@@ -78,22 +112,41 @@ elif Type_analysis =='Predictive Analysis':
                 rfm_dict = func()   # returns { "RFM":df1 , "Scores":df2 , ... }
 
                 for name, df in rfm_dict.items():
-                    st.subheader(name)                # show name of DataFrame
-                    st.data_editor(df, hide_index=True, width=500,height=250)
+                    st.subheader(name)  
+
+                    fig = auto_plot(df)
+                    st.plotly_chart(fig,width='stretch') 
+
+                    st.data_editor(df, hide_index=True,height=350)
         elif choice == "High risk orders":
             if st.sidebar.button("Show orders"):
                 hro_dict = func()   # returns { "RFM":df1 , "Scores":df2 , ... }
 
                 for name, df in hro_dict.items():
-                    st.subheader(name)                # show name of DataFrame
-                    st.data_editor(df, hide_index=True, width=500,height=150)
+                    st.subheader(name)     
+
+                    fig = auto_plot(df)
+                    st.plotly_chart(fig,width='stretch')    
+
+                    st.data_editor(df, hide_index=True,height=350)
+
         elif func.__code__.co_argcount > 1:    # function has parameters
             param = st.sidebar.number_input("Enter parameter value:", value=5)
             if st.sidebar.button("Show"):
-                st.data_editor(func(param),hide_index=True,width=350,height=250)
+
+                df=func(param)
+                fig = auto_plot(df)
+                st.plotly_chart(fig,width='stretch')
+
+                st.data_editor(df,hide_index=True,height=350)
         else:                                # no-parameter function
             if st.sidebar.button("Show"):
-                st.data_editor(func(),hide_index=True,width=350,height=250)
+
+                df=func()
+                fig = auto_plot(df)
+                st.plotly_chart(fig,width='stretch')
+
+                st.data_editor(df,hide_index=True,height=350)
 else:
     st.sidebar.header("Prescriptive Analysis Functions")
     st.sidebar.write("What do you want to analyze?")
@@ -114,7 +167,17 @@ else:
         if func.__code__.co_argcount > 1:    # function has parameters
             param = st.sidebar.number_input("Enter parameter value:", value=5)
             if st.sidebar.button("Show"):
-                st.data_editor(func(param),hide_index=True,width=350,height=250)
+                
+                df=func(param)
+                fig = auto_plot(df)
+                st.plotly_chart(fig,width='stretch')
+
+                st.data_editor(df,hide_index=True,height=350)
         else:                                # no-parameter function
             if st.sidebar.button("Show"):
-                st.data_editor(func(),hide_index=True,width=350,height=250)
+
+                df=func()
+                fig = auto_plot(df)
+                st.plotly_chart(fig,width='stretch')
+
+                st.data_editor(df,hide_index=True,height=350)
