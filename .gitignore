@@ -2,3 +2,4 @@ venv\
 tests\
 docs\
 __pychache__\
+notebooks\
