@@ -8,7 +8,17 @@ Images from the project are:
 ![Queries in Descriptive Data](images/Types%20of%20analysis%20in%20descriptive%20data.png)
 ![Queries in Predictive Data](images/Types%20of%20analysis%20in%20Predictive%20data.png)
 ![Queries in Prescriptive Data](images/Types%20of%20analysis%20in%20Prescriptive%20data.png)
-
+![Queries in Prescriptive Data notebook](images/prescriptive%20analysis%20notebook.png)
+![Queries in Predictive Data notebook](images/predictive%20analysis%20notebook.png)
+![Queries in Descriptive Data notebook](images/descriptive%20analysis%20notebook.png)
+![Queries in Prescriptive Data SQL](images/sql%20queries%20prescriptive.png)
+![Queries in Predictive Data SQL](images/sql%20queries%20predictive.png)
+![Queries in Descriptive Data SQL](images/sql%20queries%20descriptive.png)
+![Data File](images/Data%20File.png)
+![Report Generator code](images/report%20generator%20code.png)
+![Analytics code](images/analytics%20code.png)
+![CSV to Database](images/Csv%20to%20database%20code.png)
+![Excel Report Image](images/excel%20report.png)
 
 ## Project Overview
 A comprehensive sales analytics system that simulates real word business data workflow.
