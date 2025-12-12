@@ -1,0 +1,15 @@
+#packages to install 
+
+pandas
+
+sqlite3
+
+os
+
+sys
+
+streamlit
+
+plotly
+
+matplotlib

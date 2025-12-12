@@ -1,6 +1,5 @@
 venv\
 tests\
-docs\
 __pycache__\
 notebooks\
 .pyc
