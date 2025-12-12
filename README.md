@@ -94,7 +94,7 @@ Category             :      Technologies
 **Version Control**  :       GitHub, Git
 
 ## Project Structure
-
+Folder Structure 
 ![Folder Structure](images/folder%20structure.png)
 
 ## Skills Demonstrated
