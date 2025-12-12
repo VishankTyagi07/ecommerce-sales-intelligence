@@ -8,10 +8,13 @@ Images from the project are:
 - Query Analysis
 ![Query Analysis](images/Query%20Descriptive%20analysis.png)
 - Queries in Descriptive Data
+
 ![Queries in Descriptive Data](images/Types%20of%20analysis%20in%20descriptive%20data.png)
 - Queries in Predictive Data
+
 ![Queries in Predictive Data](images/Types%20of%20analysis%20in%20Predictive%20data.png)
 - Queries in Prescriptive Data
+
 ![Queries in Prescriptive Data](images/Types%20of%20analysis%20in%20Prescriptive%20data.png)
 - Jupyter Notebooks
 ![Queries in Prescriptive Data notebook](images/prescriptive%20analysis%20notebook.png)
