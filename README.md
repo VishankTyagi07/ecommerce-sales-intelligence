@@ -95,7 +95,7 @@ Category             :      Technologies
 
 ## Project Structure
 Folder Structure 
-![Folder Structure](images/folder%20structure.png)
+![Folder Structure](images/Folder%20Structure.png)
 
 ## Skills Demonstrated
 
