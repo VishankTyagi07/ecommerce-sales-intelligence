@@ -3,22 +3,34 @@
 >**This is a end to end data analytics pipeline demonstrating SQL,Python and Excel Automation For Business Intelligence**
 
 Images from the project are:
+### StreamLit Dashboard
 ![Dashboard](images/Dashboard.png)
+### Query Analysis
 ![Query Analysis](images/Query%20Descriptive%20analysis.png)
+### Queries in Descriptive Data
 ![Queries in Descriptive Data](images/Types%20of%20analysis%20in%20descriptive%20data.png)
+### Queries in Predictive Data
 ![Queries in Predictive Data](images/Types%20of%20analysis%20in%20Predictive%20data.png)
+### Queries in Prescriptive Data
 ![Queries in Prescriptive Data](images/Types%20of%20analysis%20in%20Prescriptive%20data.png)
+### Jupyter Notebooks
 ![Queries in Prescriptive Data notebook](images/prescriptive%20analysis%20notebook.png)
 ![Queries in Predictive Data notebook](images/predictive%20analysis%20notebook.png)
 ![Queries in Descriptive Data notebook](images/descriptive%20analysis%20notebook.png)
+### SQL Queries
 ![Queries in Prescriptive Data SQL](images/sql%20queries%20prescriptive.png)
 ![Queries in Predictive Data SQL](images/sql%20queries%20predictive.png)
 ![Queries in Descriptive Data SQL](images/sql%20queries%20descriptive.png)
+### Data File used
 ![Data File](images/Data%20File.png)
+### Report Generator Code
 ![Report Generator code](images/report%20generator%20code.png)
-![Analytics code](images/analytics%20code.png)
-![CSV to Database](images/Csv%20to%20database%20code.png)
 ![Excel Report Image](images/excel%20report.png)
+### Analytics code
+![Analytics code](images/analytics%20code.png)
+### File Convertion to database
+![CSV to Database](images/Csv%20to%20database%20code.png)
+
 
 ## Project Overview
 A comprehensive sales analytics system that simulates real word business data workflow.
@@ -82,47 +94,7 @@ Category             :      Technologies
 **Version Control**  :       GitHub, Git
 
 ## Project Structure
-'''
-E-Commerce Sales Intelligence/
-|--dashboard/
-|   |__app.py                                         # Streamlit Dashboard
-|
-|--data/
-|   |__sales_data.csv                                 # Data Containing 50000+ rows
-|
-|--database/
-|   |--queries/                                        # Sql Queries
-|   |   |--Descriptive_queries.sql
-|   |   |--Predictive_queries.sql
-|   |   |__Prescripive_queries.sql
-|   |__ecommerce.db                                     # Database
-|
-|--reports/                                             # Generated reports
-|   |--Descriptive_Analysis_reports.xlsx
-|   |--Predictive_Analysis_reports.xlsx
-|   |__Prescriptive_Analysis_reports.xlsx
-|
-|--src/                                                  
-|   |--analytics.py                                      #Source Code for reusable query functions.
-|   |--csv_to_database.py         #Source Code for inspecting one csv file to multiple csv files and for converting into database.
-|   |__excel_reporter.py                                 # Souce Code to Generate Excel Reports.
-|
-|--T_notebooks                                         # Notebooks for using the query functions and to analyze data
-|   |--Descriptive_analysis.ipynb                   
-|   |--Predictive_analysis.ipynb
-|   |__Prescriptive_analysis.ipynb
-|
-|--venv/                                             # virtual Environment
-|
-|--PROJECT_BRIEF.md                                  # Shows Logical thinking used in the making of project
-|
-|--README.md                                         # README file 
-|
-|--.gitignore                                        #git ignore file
-|
-|___requirements.txt                                 # packages used in project
-'''
-
+![Folder Structure](images/folder%20structure.png)
 ## Skills Demonstrated
 
 ### Technical Skills
