@@ -3,32 +3,32 @@
 >**This is a end to end data analytics pipeline demonstrating SQL,Python and Excel Automation For Business Intelligence**
 
 Images from the project are:
-### StreamLit Dashboard
+StreamLit Dashboard
 ![Dashboard](images/Dashboard.png)
-### Query Analysis
+Query Analysis
 ![Query Analysis](images/Query%20Descriptive%20analysis.png)
-### Queries in Descriptive Data
+Queries in Descriptive Data
 ![Queries in Descriptive Data](images/Types%20of%20analysis%20in%20descriptive%20data.png)
-### Queries in Predictive Data
+Queries in Predictive Data
 ![Queries in Predictive Data](images/Types%20of%20analysis%20in%20Predictive%20data.png)
-### Queries in Prescriptive Data
+Queries in Prescriptive Data
 ![Queries in Prescriptive Data](images/Types%20of%20analysis%20in%20Prescriptive%20data.png)
-### Jupyter Notebooks
+Jupyter Notebooks
 ![Queries in Prescriptive Data notebook](images/prescriptive%20analysis%20notebook.png)
 ![Queries in Predictive Data notebook](images/predictive%20analysis%20notebook.png)
 ![Queries in Descriptive Data notebook](images/descriptive%20analysis%20notebook.png)
-### SQL Queries
+SQL Queries
 ![Queries in Prescriptive Data SQL](images/sql%20queries%20prescriptive.png)
 ![Queries in Predictive Data SQL](images/sql%20queries%20predictive.png)
 ![Queries in Descriptive Data SQL](images/sql%20queries%20descriptive.png)
-### Data File used
+Data File used
 ![Data File](images/Data%20File.png)
-### Report Generator Code
+Report Generator Code
 ![Report Generator code](images/report%20generator%20code.png)
 ![Excel Report Image](images/excel%20report.png)
-### Analytics code
+Analytics code
 ![Analytics code](images/analytics%20code.png)
-### File Convertion to database
+File Convertion to database
 ![CSV to Database](images/Csv%20to%20database%20code.png)
 
 
@@ -94,7 +94,9 @@ Category             :      Technologies
 **Version Control**  :       GitHub, Git
 
 ## Project Structure
+
 ![Folder Structure](images/folder%20structure.png)
+
 ## Skills Demonstrated
 
 ### Technical Skills
