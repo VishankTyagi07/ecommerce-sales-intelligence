@@ -1,4 +1,4 @@
-# E-COMMERCE SALES INTELLIGENCE SYSTEM.
+# E-COMMERCE SALES INTELLIGENCE SYSTEM..
 
 >**This is a end to end data analytics pipeline demonstrating SQL,Python and Excel Automation For Business Intelligence**
 
