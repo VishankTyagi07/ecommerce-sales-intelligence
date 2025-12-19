@@ -2,11 +2,7 @@
 
 pandas
 
-sqlite3
 
-os
-
-sys
 
 streamlit
 
