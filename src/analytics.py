@@ -33,22 +33,29 @@ Created: 11 December 2025
 import pandas as pd
 import sqlite3
 import os
+from typing import Dict
 
 class SalesAnalytics:
     #connecting the database
-    def __init__(self, db_path=None):
-        if db_path is None:
-            project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-            db_path = os.path.join(project_root, "database", "ecommerce.db")
+    def __init__(self, db_relative_path="database/ecommerce.db"):
+        # Absolute path to project root
+        project_root = os.path.abspath(
+            os.path.join(os.path.dirname(__file__), "..")
+        )
 
-        self.db_path = db_path
-        
-        try:
-            self.conn = sqlite3.connect(self.db_path)
-            print(f" Connected to database: {self.db_path}")
-        except sqlite3.Error as e:
-            print(f" Error connecting to database: {e}")
-            raise
+        self.db_path = os.path.join(project_root, db_relative_path)
+
+        if not os.path.exists(self.db_path):
+            raise FileNotFoundError(
+                f"Database not found at {self.db_path}"
+            )
+
+        self.conn = sqlite3.connect(self.db_path, check_same_thread=False)
+
+    def close(self):
+        """Close database connection."""
+        if self.conn:
+            self.conn.close()
 
 # functions for descriptive queries
 
@@ -161,7 +168,7 @@ class SalesAnalytics:
 
     #RFM (Recency, Frequency, Monetary) signals
 
-    def RFM_signals(self)-> pd.DataFrame:
+    def RFM_signals(self)-> Dict[str, pd.DataFrame]:
 
         Recency_q="""SELECT customer_id,
                         customer_name,
