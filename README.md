@@ -169,5 +169,12 @@ If you found this project helpful or interesting,please consider giving it a sta
 **Built with :heart: by Vishank Tyagi | December 2025**
 
 
-
 *This Project demonstrates end-to-end data analytics capabilities suitable for Data Analyst,Business Intelligence Analyst, and Analytics Engineer Roles*
+
+## License & Usage
+
+This project is **NOT open-source**.
+
+All rights are reserved by the author. Reuse, copying, modification,
+or redistribution of this repository or its contents is strictly
+prohibited without explicit permission.
